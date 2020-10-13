@@ -1,0 +1,45 @@
+#page-landing {
+    background: linear-gradient(    /* Função CSS para cor gradiente*/
+        329.54deg,                  /* Graus (degree) - giro do gradiente */
+        #29b6d1 0%,               /* Primeira cor localizada no 0% */
+        #00c7c7 100%              /* Segunda cor localizada no 100% */
+    ) no-repeat;                    /* Não repetir o background */
+
+    text-align: center;
+    min-height: 100vh;              /* Altura MÍNIMA de visão da altura */
+
+    display: flex;
+}
+
+#container {
+    width: 90%;
+
+    margin: auto;
+}
+
+.location, 
+h1, 
+.visit p {
+    height: 16vh;
+}
+
+.visit a {
+    width: 8rem;
+    height: 8rem;
+    background: #ffd666;
+
+    border: none;
+    border-radius: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+
+    transition: background .2s;
+}
+
+.visit a:hover {
+    background: #96feff;
+}
