@@ -1,11 +1,13 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     height: 100vh;
     color: white;
+    background: #ebf2f5;
 }
 
 :root {
@@ -17,24 +19,3 @@ body, input, button, textarea {
     font: 400 1.8rem/1 'Nunito', sans-serif;
 }
 
-/* Tempo de aparição de cada um, para aparecerem em tempos diferentes */
-
-#logo {
-    animation-delay: 50ms;
-}
-
-.location {
-    animation-delay: 100ms;
-}
-
-.main h1 {
-    animation-delay: 150ms;
-}
-
-.visit p {
-    animation-delay: 200ms;
-}
-
-.visit a {
-    animation-delay: 250ms;
-}
