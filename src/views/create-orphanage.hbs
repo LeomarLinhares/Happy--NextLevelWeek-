@@ -38,7 +38,7 @@
             </footer>
         </aside>
         <main class="animate-appear with-sidebar">
-            <form action="">
+            <form action="save-orphanage" method="POST" onsubmit="validate(event)">
                 <fieldset>
                     <legend>Dados</legend>
                     <div class="map-container">
@@ -66,7 +66,7 @@
                         <label for="images">Foto</label>
                         <div class="images-upload" id="images">
                             <div class="new-upload">
-                                <input name="images" placeholder="Cole o link da foto aqui" required>
+                                <input name="images" placeholder="Cole o link da foto aqui" required type="url">
                                 <span onclick="deleteField(event)"><img src="/images/remove-file.svg" alt="Remover foto"></span>
                             </div>
                             </div>
@@ -82,8 +82,8 @@
                         <textarea id="instructions" name="instructions" required></textarea>
                     </div>
                     <div class="input-block">
-                        <label for="oppening_hours">Horário das visitas</label>
-                        <input id="oppening_hours" name="oppening_hours" required>
+                        <label for="opening_hours">Horário das visitas</label>
+                        <input id="opening_hours" name="opening_hours" required>
                     </div>
                     <div class="input-block">
                         <label for="open_on_weekends">Atende aos fins de semana?</label>
@@ -104,7 +104,7 @@
                             type="button"
                             >Não</button>
                         </div>
-                        <button type="submit" class="primary-button">Confirmar</button>
+                        <button type="submit" class="primary-button" onsubmit="validate(event)">Confirmar</button>
                     </div>
                 </fieldset>
             </form>
