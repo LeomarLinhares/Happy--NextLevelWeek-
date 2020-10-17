@@ -20,3 +20,18 @@ main {
     border-radius: 0 0 20px 20px;
 }
 
+/* Borda do mapa  */
+.map-container.no-info {
+    border: 1px solid #e85858;
+    box-shadow: 0 0 1rem #e85858;
+}
+
+/* Background do footer  */
+.map-container footer.no-info {
+    background-color: #ffe5e5;
+}
+
+/* Instrução do mapa  */
+.map-container footer a.no-info {
+    color: #ad1818;
+}

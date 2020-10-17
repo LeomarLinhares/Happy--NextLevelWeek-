@@ -26,6 +26,17 @@ map.on('click', (event) => {
     // Remover ícone anterior
     marker && map.removeLayer(marker)
 
+    // Deletar classe .no-info, se houver, para refazer o estilo
+    const mapContainer = document.querySelector('.map-container');
+    const mapContainerFooter = document.querySelector('.map-container footer');
+    const mapContainerFooterA = document.querySelector('.map-container footer a');
+
+    if (mapContainer.classList.length == 2) {
+        mapContainer.classList.remove('no-info');
+        mapContainerFooter.classList.remove('no-info');
+        mapContainerFooterA.classList.remove('no-info');
+    }
+
     // Adicionar ícone
     marker = L.marker([lat, lng], { icon })
     .addTo(map)
@@ -92,8 +103,20 @@ function validate(event) {
     const latField = document.querySelector('[name=lat]');
     const lngField = document.querySelector('[name=lng]');
 
+    const mapContainer = document.querySelector('.map-container');
+    const mapContainerFooter = document.querySelector('.map-container footer');
+    const mapContainerFooterA = document.querySelector('.map-container footer a');
+
     if (latField.value == "" || lngField.value == "") {
-        event.preventDefault()
-        alert('Selecione um ponto no mapa')
+        event.preventDefault();
+    
+        // Feedback de não preenchimento do mapa
+        mapContainer.classList.add('no-info');
+        mapContainerFooter.classList.add('no-info');
+        mapContainerFooterA.classList.add('no-info');
+        scrollTo({
+            top: 250,
+            behavior: 'smooth',
+        })
     }
 }
