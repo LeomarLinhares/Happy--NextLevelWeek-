@@ -1,5 +1,8 @@
 // Criar mapa
-const map = L.map('mapid').setView([-22.7585364,-43.4540157], 15);
+const geoDBLat = document.querySelector('[name=latGeoDB]').value;
+const geoDBLng = document.querySelector('[name=lngGeoDB]').value;
+
+const map = L.map('mapid').setView([geoDBLat, geoDBLng], 15);
 
 // Criar e adicionar tileLayer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')

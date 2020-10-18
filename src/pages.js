@@ -1,9 +1,22 @@
 const Database = require('./database/db');
-const saveOrphanage = require('./database/saveOrphanage')
+const saveOrphanage = require('./database/saveOrphanage');
+var request = require("request");
+
+var url = "https://geolocation-db.com/json";
+var location;
 
 module.exports = {
-    index(req, res) {
-        return res.render('index')
+    async index(req, res) {
+        await request({
+            url: url,
+            json: true
+        }, function (error, response, body) {
+            if (!error && response.statusCode === 200) {
+                location = body
+                console.log({location});
+                return res.render('index', {location});
+            }
+        });
     },
 
     async orphanage(req, res) {
@@ -33,7 +46,17 @@ module.exports = {
         try {
             const db = await Database;
             const orphanages = await db.all("SELECT * FROM orphanages")
-            return res.render('orphanages', { orphanages })
+
+            await request({
+                url: url,
+                json: true
+            }, (error, response, body) => {
+                if (!error && response.statusCode === 200) {
+                    location = body;
+                    return res.render('orphanages', {orphanages, location})
+                }
+            });
+            
         } catch(error) {
             console.log(error);
             return res.send('Erro no banco de dados!');

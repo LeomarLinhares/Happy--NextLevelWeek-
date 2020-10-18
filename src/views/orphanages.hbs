@@ -25,6 +25,8 @@
 </head>
 <body>
     <div id="page-orphanages">
+        <input type="hidden" name="latGeoDB" value="{{location.latitude}}">
+        <input type="hidden" name="lngGeoDB" value="{{location.longitude}}">
         <aside class="animate-right">
             <header>
                 <img src="//images/map-marker.svg" alt="">
@@ -34,8 +36,8 @@
                 <p>Muitas crianças estão esperando sua visita :)</p>
             </header>
             <footer>
-                <strong>Nova Iguaçu</strong>
-                <p>Rio de Janeiro</p>
+                <strong>{{location.city}}</strong>
+                <p>{{location.state}}</p>
             </footer>
         </aside>
         <div id="mapid" class="animate-appear"></div>
